@@ -23,7 +23,6 @@ int main(void)
 		else{
 				led=0x00000010;
 		}
-	}/
 		else{	
 		if(led != 0x00000000)
 			{

@@ -31,17 +31,17 @@ int main(void)
 	
 	
 	
-	while(1)
-	{	
+while(1)
+{	
 		
-	  delay();
-		dig_count +=1;
-		if(dig_count == 0x05)
-		{
-			dig_count =0x00;
-		}
-		if(LPC_GPIO2->FIOPIN & 0x00000001)
-		{
+	delay();
+	dig_count +=1;
+	if(dig_count == 0x05)
+	{
+		dig_count =0x00;
+	}
+	if(LPC_GPIO2->FIOPIN & 0x00000001)
+	{
 		if(one_sec_flg == 0xff)
 		{
 			one_sec_flg = 0x00;
@@ -49,7 +49,7 @@ int main(void)
 		}
 		if(dig1+1 == 0x00)
 		{
-      dig1 = 0x09;
+      		dig1 = 0x09;
 			dig2 -= 1;
 			if(dig2+1 == 0x00){
 				dig2 = 0x09;
