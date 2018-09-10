@@ -1,0 +1,142 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, DATA, READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 10001000        DCD              0x10001000
+    5 00000004 00000000        DCD              Reset_Handler
+    6 00000008                 ALIGN
+    7 00000008         
+    8 00000008                 AREA             mycode, CODE, READONLY
+    9 00000000                 ENTRY
+   10 00000000                 EXPORT           Reset_Handler
+   11 00000000         
+   12 00000000         Reset_Handler
+   13 00000000 480C            LDR              R0,=num
+   14 00000002 6801            ldr              r1,[r0]
+   15 00000004 F04F 0201       mov              r2,#01
+   16 00000008 F000 F803       bl               factorial
+   17 0000000C 480A            ldr              r0,=facot
+   18 0000000E 6002            str              r2,[r0]
+   19 00000010 E7FE    stop    b                stop
+   20 00000012         factorial
+   21 00000012 2901            cmp              r1,#1
+   22 00000014 BF08 4770       bxeq             lr
+   23 00000018 B402            push             {r1}
+   24 0000001A B500            push             {lr}
+   25 0000001C F1A1 0101       sub              r1,#01
+   26 00000020 F7FF FFF7       bl               factorial
+   27 00000024 F85D EB04       pop              {lr}
+   28 00000028 BC02            pop              {r1}
+   29 0000002A FB02 F201       mul              r2,r2,r1
+   30 0000002E 4770            bx               lr
+   31 00000030 00000005 
+                       num     dcd              5
+   32 00000034 00000000 
+              00000000         AREA             mydata,DATA,READWRITE
+   33 00000000 00000000 
+                       facot   DCD              0
+   34 00000004                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=5_2.d -o
+5_2.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\Inc\NXP\
+LPC17xx --predefine="__EVAL SETA 1" --list=5_2.lst 5_2.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file 5_2.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file 5_2.s
+   Uses
+      At line 2 in file 5_2.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 12 in file 5_2.s
+   Uses
+      At line 5 in file 5_2.s
+      At line 10 in file 5_2.s
+
+factorial 00000012
+
+Symbol: factorial
+   Definitions
+      At line 20 in file 5_2.s
+   Uses
+      At line 16 in file 5_2.s
+      At line 26 in file 5_2.s
+
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 8 in file 5_2.s
+   Uses
+      None
+Comment: mycode unused
+num 00000030
+
+Symbol: num
+   Definitions
+      At line 31 in file 5_2.s
+   Uses
+      At line 13 in file 5_2.s
+Comment: num used once
+stop 00000010
+
+Symbol: stop
+   Definitions
+      At line 19 in file 5_2.s
+   Uses
+      At line 19 in file 5_2.s
+Comment: stop used once
+5 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+facot 00000000
+
+Symbol: facot
+   Definitions
+      At line 33 in file 5_2.s
+   Uses
+      At line 17 in file 5_2.s
+Comment: facot used once
+mydata 00000000
+
+Symbol: mydata
+   Definitions
+      At line 32 in file 5_2.s
+   Uses
+      None
+Comment: mydata unused
+2 symbols
+342 symbols in table

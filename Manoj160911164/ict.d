@@ -1,0 +1,1 @@
+ict.o: ict.s

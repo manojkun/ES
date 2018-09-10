@@ -1,0 +1,168 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, DATA, READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 10001000        DCD              0x10001000
+    5 00000004 00000000        DCD              Reset_Handler
+    6 00000008                 ALIGN
+    7 00000008         
+    8 00000008                 AREA             mycode, CODE, READONLY
+    9 00000000                 ENTRY
+   10 00000000                 EXPORT           Reset_Handler
+   11 00000000         
+   12 00000000         Reset_Handler
+   13 00000000 4816            LDR              R0,=arr
+   14 00000002 4917            ldr              r1,=num
+   15 00000004 6809            ldr              r1,[r1]
+   16 00000006 F04F 0300       mov              r3,#0
+   17 0000000A F04F 020A       mov              r2,#10
+   18 0000000E F04F 37FF       mov              r7,#-1
+   19 00000012 6805    up      ldr              r5,[r0]
+   20 00000014 42A9            cmp              r1,r5
+   21 00000016 D005            beq              ext
+   22 00000018 F100 0004       add              r0,#4
+   23 0000001C F103 0301       add              r3,#1
+   24 00000020 3A01            subs             r2,#1
+   25 00000022 D1F6            bne              up
+   26 00000024 4D0F    ext     ldr              r5,=res
+   27 00000026 2A00            cmp              r2,#00
+   28 00000028 BF0C 602F       streq            r7,[r5]
+   29 0000002C 602B            strne            r3,[r5]
+   30 0000002E E7FE    stop    b                stop
+   31 00000030 0000000A 
+              0000000B 
+              0000000C 
+              0000000D 
+              0000000E 
+              0000000F 
+              00000010 
+              00000011 
+              00000012 
+              00000013 arr     dcd              10,11,12,13,14,15,16,17,18,19
+   32 00000058 0000000E 
+                       num     dcd              14
+   33 0000005C 00000000 
+              00000000 
+              00000000         AREA             mydata,DATA,READWRITE
+   34 00000000 00000000 
+                       res     dcd              0
+   35 00000004                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=5_3.d -o
+5_3.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\Inc\NXP\
+LPC17xx --predefine="__EVAL SETA 1" --list=5_3.lst 5_3.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file 5_3.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file 5_3.s
+   Uses
+      At line 2 in file 5_3.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 12 in file 5_3.s
+   Uses
+      At line 5 in file 5_3.s
+      At line 10 in file 5_3.s
+
+arr 00000030
+
+Symbol: arr
+   Definitions
+      At line 31 in file 5_3.s
+   Uses
+      At line 13 in file 5_3.s
+Comment: arr used once
+ext 00000024
+
+Symbol: ext
+   Definitions
+      At line 26 in file 5_3.s
+   Uses
+      At line 21 in file 5_3.s
+Comment: ext used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 8 in file 5_3.s
+   Uses
+      None
+Comment: mycode unused
+num 00000058
+
+Symbol: num
+   Definitions
+      At line 32 in file 5_3.s
+   Uses
+      At line 14 in file 5_3.s
+Comment: num used once
+stop 0000002E
+
+Symbol: stop
+   Definitions
+      At line 30 in file 5_3.s
+   Uses
+      At line 30 in file 5_3.s
+Comment: stop used once
+up 00000012
+
+Symbol: up
+   Definitions
+      At line 19 in file 5_3.s
+   Uses
+      At line 25 in file 5_3.s
+Comment: up used once
+7 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+mydata 00000000
+
+Symbol: mydata
+   Definitions
+      At line 33 in file 5_3.s
+   Uses
+      None
+Comment: mydata unused
+res 00000000
+
+Symbol: res
+   Definitions
+      At line 34 in file 5_3.s
+   Uses
+      At line 26 in file 5_3.s
+Comment: res used once
+2 symbols
+344 symbols in table

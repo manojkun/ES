@@ -1,0 +1,2 @@
+Dependencies for Project 'third', Target 'Target 1': (DO NOT MODIFY !)
+F (.\32.S)(0x5B726AFE)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC17xx --list "32.lst" --xref -o "32.o" --depend "32.d")

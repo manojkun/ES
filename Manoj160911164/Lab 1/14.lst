@@ -1,0 +1,149 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET,DATA,READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 40001000        DCD              0x40001000
+    5 00000004 00000000        DCD              Reset_Handler
+    6 00000008                 ALIGN
+    7 00000008                 AREA             mycode,CODE,READONLY
+    8 00000000                 ENTRY
+    9 00000000                 EXPORT           Reset_Handler
+   10 00000000         Reset_Handler
+   11 00000000 4807            LDR              R0,=SRC + (LEN-1)*4
+   12 00000002 4908            LDR              R1,=SRC
+   13 00000004 F04F 0305       MOV              R3,#5
+   14 00000008         
+   15 00000008 6802    up      LDR              R2,[R0]
+   16 0000000A 680C            LDR              R4,[R1]
+   17 0000000C F841 2B04       STR              R2,[R1],#4
+   18 00000010 F840 4904       STR              R4,[R0],#-4
+   19 00000014 F1A3 0301       SUB              R3,#1
+   20 00000018 F093 0F00       TEQ              R3,#0
+   21 0000001C D1F4            BNE              up
+   22 0000001E E7FE    STOP    B                STOP
+   23 00000020 0000000A 
+                       LEN     equ              10
+   24 00000020 00000024 
+              00000000         AREA             mydata,DATA,READWRITE
+   25 00000000 00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 SRC     DCD              0,0,0,0,0,0,0,0,0,0
+   26 00000028                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=14.d -o1
+4.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\Inc\NXP\LP
+C17xx --predefine="__EVAL SETA 1" --list=14.lst 14.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file 14.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file 14.s
+   Uses
+      At line 2 in file 14.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 10 in file 14.s
+   Uses
+      At line 5 in file 14.s
+      At line 9 in file 14.s
+
+STOP 0000001E
+
+Symbol: STOP
+   Definitions
+      At line 22 in file 14.s
+   Uses
+      At line 22 in file 14.s
+Comment: STOP used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 7 in file 14.s
+   Uses
+      None
+Comment: mycode unused
+up 00000008
+
+Symbol: up
+   Definitions
+      At line 15 in file 14.s
+   Uses
+      At line 21 in file 14.s
+Comment: up used once
+4 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+SRC 00000000
+
+Symbol: SRC
+   Definitions
+      At line 25 in file 14.s
+   Uses
+      At line 11 in file 14.s
+      At line 12 in file 14.s
+
+mydata 00000000
+
+Symbol: mydata
+   Definitions
+      At line 24 in file 14.s
+   Uses
+      None
+Comment: mydata unused
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+LEN 0000000A
+
+Symbol: LEN
+   Definitions
+      At line 23 in file 14.s
+   Uses
+      At line 11 in file 14.s
+Comment: LEN used once
+1 symbol
+342 symbols in table
